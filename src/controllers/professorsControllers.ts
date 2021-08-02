@@ -4,7 +4,7 @@ import * as professorServices from "../services/professorServices"
 
 export async function getProfessor(req:Request, res:Response) {
     try{
-        const professors = professorServices.findAll();
+        const professors = await professorServices.findAll();
         return res.send(professors)
     }
     catch(err){

@@ -1,7 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
-import Discipline from "./Disciplines";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, ManyToMany } from "typeorm";
+import Exam from "./Exam";
 
-@Entity("professor")
+@Entity("professors")
 export default class Professor {
   @PrimaryGeneratedColumn()
   id: number;
@@ -9,6 +9,6 @@ export default class Professor {
   @Column()
   name: string;
 
-  @OneToMany(() => Discipline, discipline => discipline.professor)
-  disciplines: Discipline[]
+  @OneToMany(() => Exam, exams => exams.professor)
+  exams: Exam[];
 }
