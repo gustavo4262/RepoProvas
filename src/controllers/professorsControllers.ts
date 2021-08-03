@@ -8,6 +8,7 @@ export async function getProfessor(req:Request, res:Response) {
         return res.send(professors)
     }
     catch(err){
+        console.log(err.message)
         return res.sendStatus(500);
     }
 }
