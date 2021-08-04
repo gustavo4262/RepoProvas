@@ -2,8 +2,8 @@ import supertest from "supertest";
 import { getConnection } from "typeorm";
 
 import app, { init } from "../../src/app";
-import { createProfessor } from "../factories/professorFactory";
-import { clearDatabase } from "../utils/database";
+import { createProfessor } from "../../src/factories/professorFactory";
+import { clearDatabase } from "../../src/utils/database";
 
 beforeAll(async () => {
   await init();
