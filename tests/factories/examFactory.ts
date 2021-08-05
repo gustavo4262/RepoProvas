@@ -1,8 +1,8 @@
-import Exam from "../entities/Exam";
+import Exam from "../../src/entities/Exam";
 import faker from 'faker'
-import Discipline from "../entities/Discipline";
+import Discipline from "../../src/entities/Discipline";
 import { createDiscipline } from "./disciplineFactory";
-import Professor from "../entities/Professor";
+import Professor from "../../src/entities/Professor";
 import { createProfessor } from "./professorFactory";
 import { getConnection, getRepository } from "typeorm";
 

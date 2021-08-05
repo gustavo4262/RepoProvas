@@ -5,3 +5,13 @@ export async function findAll() {
     const professors = await getRepository(Professor).find({relations:['exams']});
     return professors;
 }   
+
+export async function findOne(id: number) {
+    try{
+        const professor = await getRepository(Professor).findOneOrFail({ id });
+        return professor;
+    }
+    catch(err){
+        throw Error('Not Found')
+    }
+}

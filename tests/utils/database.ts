@@ -1,10 +1,8 @@
 import { getRepository } from "typeorm";
 
-// import User from "../../src/entities/User";
-import Professor from "../entities/Professor"
-import Discipline from "../entities/Discipline"
-import Exam from "../entities/Exam"
-
+import Professor from "../../src/entities/Professor"
+import Discipline from "../../src/entities/Discipline"
+import Exam from "../../src/entities/Exam"
 
 
 export async function clearDatabase () {

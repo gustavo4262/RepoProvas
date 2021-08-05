@@ -1,7 +1,7 @@
 import { getRepository } from "typeorm";
-import Discipline from "../entities/Discipline";
+import Discipline from "../../src/entities/Discipline";
 import faker from 'faker'
-import Professor from "../entities/Professor";
+import Professor from "../../src/entities/Professor";
 
 export async function createDiscipline(name?: string, professors?: Professor[]){
 

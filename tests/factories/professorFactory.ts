@@ -1,6 +1,6 @@
 import { getRepository } from "typeorm";
 import faker from 'faker'
-import Professor from "../entities/Professor";
+import Professor from "../../src/entities/Professor";
 
 export async function createProfessor (name?:string, image?:string) : Promise<Professor> {
   const newProfessor = new Professor();

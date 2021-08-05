@@ -1,9 +1,9 @@
-import { createProfessor } from "./factories/professorFactory";
-import { createDiscipline } from "./factories/disciplineFactory";
-import { createExam } from './factories/examFactory'
+import { createProfessor } from "../tests/factories/professorFactory";
+import { createDiscipline } from "../tests/factories/disciplineFactory";
+import { createExam } from '../tests/factories/examFactory'
 import Discipline from "./entities/Discipline";
 import Professor from "./entities/Professor";
-import { clearDatabase } from './utils/database'
+import { clearDatabase } from '../tests/utils/database'
 
 interface CreateExam {
     name?: string; 
