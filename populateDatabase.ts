@@ -1,9 +1,9 @@
-import { createProfessor } from "../tests/factories/professorFactory";
-import { createDiscipline } from "../tests/factories/disciplineFactory";
-import { createExam } from '../tests/factories/examFactory'
-import Discipline from "./entities/Discipline";
-import Professor from "./entities/Professor";
-import { clearDatabase } from '../tests/utils/database'
+import { createProfessor } from "./tests/factories/professorFactory";
+import { createDiscipline } from "./tests/factories/disciplineFactory";
+import { createExam } from './tests/factories/examFactory'
+import Discipline from "./src/entities/Discipline";
+import Professor from "./src/entities/Professor";
+import { clearDatabase } from './tests/utils/database'
 
 interface CreateExam {
     name?: string; 
@@ -21,9 +21,9 @@ export default async function populateDatabase() {
     const professorEduardo = await createProfessor('Edwardo');
     const professorMartha = await createProfessor('Maria');
 
-    const disciplineMath = await createDiscipline('Matemática', [professorCarlos, professorEduardo])
-    const disciplineGeometry = await createDiscipline('Geometria', [professorJoao, professorCarlos]);
-    const disciplineStatistics = await createDiscipline('Estatística', [professorMartha, professorCarlos])
+    const disciplineMath = await createDiscipline('Matemática', "", [professorCarlos, professorEduardo])
+    const disciplineGeometry = await createDiscipline('Geometria', "", [professorJoao, professorCarlos]);
+    const disciplineStatistics = await createDiscipline('Estatística', "", [professorMartha, professorCarlos])
 
     const exam1: CreateExam = { name: '2020.1', category: 'P1', discipline:disciplineGeometry, professor:professorCarlos };
     await createExam(exam1);

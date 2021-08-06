@@ -11,6 +11,9 @@ export default class Discipline {
     @Column()
     name: string
 
+    @Column()
+    image: string
+
     @OneToMany(() => Exam, exam => exam.discipline)
     exams: Exam[]
 

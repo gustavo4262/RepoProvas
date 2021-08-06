@@ -55,4 +55,10 @@ describe("GET /professor/:id", () => {
 
     expect(response.status).toEqual(404);
   })
+
+  it(`should return with status 400 when id is not a number`, async () => {
+    const response = await supertest(app).get('/professor/string');
+
+    expect(response.status).toEqual(400);
+  })
 })

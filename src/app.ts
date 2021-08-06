@@ -5,10 +5,10 @@ import cors from "cors";
 import "reflect-metadata";
 
 import connectDatabase from "./database";
+// import populateDatabase from '../populateDatabase'
 
 import * as professorsControllers from "./controllers/professorsControllers"
 import * as disciplinesControllers from "./controllers/disciplinesControllers"
-// import populateDatabase from "./populateDatabase";
 
 const app = express();
 app.use(cors());
@@ -20,9 +20,12 @@ app.get("/professor/:id", professorsControllers.getProfessor )
 
 app.get("/disciplines", disciplinesControllers.getDisciplines )
 
+app.get("/discipline/:id", disciplinesControllers.getDiscipline )
+
+
 export async function init () {
   await connectDatabase();
-  // await populateDatabase()
+  // await populateDatabase();
 }
 
 export default app;
