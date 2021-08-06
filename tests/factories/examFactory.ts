@@ -14,7 +14,7 @@ interface CreateExam {
     professor?: Professor;
 }
 
-export async function createExam(exam: CreateExam) {
+export async function createExam(exam: CreateExam) : Promise<Exam>{
     const newExam = new Exam()
     
     const randomYear = '20' + ('0' + Math.floor(Math.random() * 21)).slice(-2) 
@@ -33,6 +33,8 @@ export async function createExam(exam: CreateExam) {
     newExam.professor =  newProfessor;
 
     await getRepository(Exam).save(newExam);
+
+    return newExam
 
     try{
         await getConnection()

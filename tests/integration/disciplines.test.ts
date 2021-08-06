@@ -47,6 +47,8 @@ describe("GET /discipline/:id", () => {
           image: discipline.image
         })
     )
+
+    expect(response.status).toBe(200);
   })
 
   it(`should return with status 404 when element not found`, async () => {
