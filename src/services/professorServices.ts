@@ -8,7 +8,12 @@ export async function findAll() {
 
 export async function findOne(id: number) {
     try{
-        const professor = await getRepository(Professor).findOneOrFail({ id });
+        const professor = await getRepository(Professor).findOneOrFail(id, {
+            relations: ['exams']
+        });
+        professor.exams = professor.exams.sort((a, b) =>
+            a.category < b.category ? -1 : 1
+        );
         return professor;
     }
     catch(err){
