@@ -10,7 +10,7 @@ export async function findAll() {
 
 export async function findOne(id: number) {
     const discipline = await getRepository(Discipline).findOne(id, {
-        relations:['exams']
+        relations:['exams', 'professors']
     })
 
     if (!discipline) throw Error('Not Found');
