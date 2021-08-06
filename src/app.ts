@@ -17,6 +17,8 @@ app.use(express.json());
 
 app.get("/professors", professorsControllers.getProfessors )
 
+app.get("/professors/discipline/:disciplineId", professorsControllers.getProfessorByDiscipline )
+
 app.get("/professor/:id", professorsControllers.getProfessor )
 
 app.get("/disciplines", disciplinesControllers.getDisciplines )

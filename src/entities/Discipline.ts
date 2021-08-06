@@ -17,7 +17,6 @@ export default class Discipline {
     @OneToMany(() => Exam, exam => exam.discipline)
     exams: Exam[]
 
-    @ManyToMany(() => Professor)
-    @JoinTable()
+    @ManyToMany(() => Professor, professor => professor.disciplines)
     professors: Professor[];
 }

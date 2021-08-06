@@ -33,15 +33,14 @@ export async function createExam(exam: CreateExam) : Promise<Exam>{
     newExam.professor =  newProfessor;
 
     await getRepository(Exam).save(newExam);
-
-    return newExam
-
+    
     try{
         await getConnection()
         .createQueryBuilder()
-        .relation(Discipline, "professors")
-        .of(newDiscipline)
-        .add(newProfessor)
-    } catch(err){
+        .relation(Professor, "disciplines")
+        .of(newProfessor)
+        .add(newDiscipline)
+    } finally{
+        return newExam;
     }
 }

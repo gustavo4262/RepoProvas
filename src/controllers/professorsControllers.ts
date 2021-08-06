@@ -27,3 +27,21 @@ export async function getProfessor(req: Request, res: Response) {
         return res.sendStatus(500);
     }
 }
+
+export async function getProfessorByDiscipline(req: Request, res: Response) {
+    try{
+        const disciplineId: number = Number(req.params.disciplineId);
+        
+        if ( isNaN(disciplineId) ) throw Error('Bad Request');
+
+        const professors = await professorServices.findByDiscipline(disciplineId);
+        
+        res.send(professors);
+    }
+    catch(err){
+        console.log(err.message)
+        if(err.message === 'Not Found') return res.sendStatus(404);
+        if(err.message === 'Bad Request') return res.sendStatus(400);
+        return res.sendStatus(500);
+    }
+}
