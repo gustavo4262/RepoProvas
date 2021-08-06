@@ -9,16 +9,14 @@ export async function findAll() {
 }   
 
 export async function findOne(id: number) {
-    try{
-        const professor = await getRepository(Professor).findOneOrFail(id, {
-            relations: ['exams']
-        });
-        professor.exams = professor.exams.sort((a, b) =>
-            a.category < b.category ? -1 : 1
-        );
-        return professor;
-    }
-    catch(err){
-        throw Error('Not Found')
-    }
+    const professor = await getRepository(Professor).findOne(id, {
+        relations: ['exams']
+    });
+
+    if (!professor) throw Error('Not Found');
+    
+    professor.exams = professor.exams.sort((a, b) =>
+        a.category < b.category ? -1 : 1
+    );
+    return professor;
 }
