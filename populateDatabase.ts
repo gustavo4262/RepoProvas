@@ -60,7 +60,5 @@ export default async function populateDatabase() {
     
     const exam12: CreateExam = { name: '2020.1', category:'2ch', discipline:disciplineStatistics, professor: professorCarlos };
     await createExam(exam12);
-    
-
 }
 
